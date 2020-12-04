@@ -1,7 +1,7 @@
 import Foundation
 
 public func count(right: Int, down: Int = 1) -> Int {
-    let lines = readLines("day03").map { [Character]($0) }
+    let lines = readLines("day03").lazy.filter { $0 == "" }.map { [Character]($0) }
     let width = lines[0].count
     var x = 0
     var y = 0
