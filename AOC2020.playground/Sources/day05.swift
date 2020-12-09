@@ -5,7 +5,7 @@ func decodeId(string: Substring) -> Int {
 }
 
 private func parseLines() -> [Int] {
-    readLines("day05").lazy.filter { $0 != "" }
+    readLines("day05").filter { !$0.isEmpty }
         .map(decodeId)
 }
 

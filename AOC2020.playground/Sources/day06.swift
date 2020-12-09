@@ -8,7 +8,7 @@ func groupAnswers(everyone: Bool) -> [Set<Character>] {
     var current = everyone ? all : none
     var touched = false
     for line in lines {
-        if line == "" {
+        if line.isEmpty {
             answers.append(current)
             current = everyone ? all : none
             touched = false

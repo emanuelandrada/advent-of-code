@@ -22,7 +22,7 @@ struct PasswordPolicy {
 }
 
 private func parseLines() -> [(PasswordPolicy, Substring)] {
-    readLines("day02").lazy
+    readLines("day02")
         .map { String($0).split(separator: ":") }
         .filter { $0.count > 1 }
         .map { (PasswordPolicy($0[0]), $0[1].dropFirst()) }

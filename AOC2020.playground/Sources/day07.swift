@@ -17,8 +17,8 @@ struct BagContent {
     }
 }
 
-private func parseLines() -> [BagContent] {
-    readLines("day07").lazy.filter { $0 != "" }.map { BagContent(String($0)) }
+private func parseLines() -> AnySequence<BagContent> {
+    AnySequence(readLines("day07").filter { !$0.isEmpty }.map { BagContent(String($0)) })
 }
 
 let myColor = "shiny gold"

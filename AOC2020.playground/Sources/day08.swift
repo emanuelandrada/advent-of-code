@@ -26,7 +26,7 @@ enum Instruction: Equatable {
     }
 }
 private func parseLines() -> [Instruction] {
-    readLines("day08").lazy.filter { $0 != "" }
+    readLines("day08").filter { !$0.isEmpty }
         .map { Instruction($0) }
 }
 func execute(_ instructions: [Instruction]) -> (line: Int, accumulator: Int) {

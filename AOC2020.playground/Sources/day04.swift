@@ -29,7 +29,7 @@ func passportsData() -> [[String]] {
     var passports = [[String]]()
     var current = [String]()
     for line in lines {
-        if line == "" {
+        if line.isEmpty {
             passports.append(current)
             current = []
         }
