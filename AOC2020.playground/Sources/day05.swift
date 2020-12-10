@@ -1,6 +1,6 @@
 import Foundation
 
-func decodeId(string: Substring) -> Int {
+func decodeId(string: String) -> Int {
     string.reduce(0) { $0 * 2 + ($1 == "B" || $1 == "R" ? 1 : 0) }
 }
 

@@ -1,7 +1,15 @@
 import Foundation
 
-public func readLines(_ fileName: String) -> AnyIterator<Substring> {
-    let url = Bundle.main.url(forResource: fileName, withExtension: "txt")!
-    let content = try! String(contentsOf: url, encoding: .utf8)
-    return AnyIterator(content.split(omittingEmptySubsequences: false) { $0.isNewline }.lazy.makeIterator())
+struct TextFile: IteratorProtocol {
+
+    init(_ path: String) {
+        freopen(path, "r", stdin)
+    }
+    mutating func next() -> String? {
+        readLine(strippingNewline: true)
+    }
+}
+
+public func readLines(_ fileName: String) -> AnyIterator<String> {
+    AnyIterator(TextFile(Bundle.main.path(forResource: fileName, ofType: "txt")!))
 }

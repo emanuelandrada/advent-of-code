@@ -3,7 +3,7 @@ import Foundation
 enum Instruction: Equatable {
     case acc(Int), jmp(Int), nop(Int)
 
-    init(_ line: Substring) {
+    init(_ line: String) {
         let value = Int(line.dropFirst(4))!
         switch line.prefix(3) {
         case "acc":

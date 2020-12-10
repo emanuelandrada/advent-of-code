@@ -18,3 +18,5 @@ day08a()
 day08b()
 let weakness = day09a()!
 day09b(weakness: weakness)
+day10a()
+day10b()
