@@ -62,19 +62,13 @@ func isValid(pass: [String: String]) -> Bool {
     pid.matches(pass["pid"] ?? "")
 }
 public func day04b() -> Int {
-    return passportsData().lazy
+    passportsData().lazy
         .map { $0.map { $0.split(separator: ":").map { String($0) } } }
         .map { Dictionary(uniqueKeysWithValues: $0.map { ($0[0], $0[1]) }) }
         .filter(isValid)
         .count
 }
 
-extension NSRegularExpression {
-    func matches(_ string: String) -> Bool {
-        let range = NSRange(location: 0, length: string.utf16.count)
-        return firstMatch(in: string, options: [], range: range) != nil
-    }
-}
 extension Int {
     init?(_ text: String?) {
         guard let text = text, let value = Int(text) else { return nil }

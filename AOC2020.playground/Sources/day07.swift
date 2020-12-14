@@ -49,18 +49,3 @@ public func day07b() -> Int {
     }
     return countBags(color: myColor, amount: 1) - 1
 }
-
-public extension NSRegularExpression {
-    func captureGroups(string: String) -> [[String]] {
-        let range = NSRange(location: 0, length: string.utf16.count)
-        let matchResults = matches(in: string, options: [], range: range)
-        let nsString = string as NSString
-        return matchResults.map { matchResult in
-            (0..<matchResult.numberOfRanges).map{
-                matchResult.range(at: $0)
-            }.filter { $0.location != NSNotFound }.map {
-                nsString.substring(with: $0) as String
-            }
-        }
-    }
-}

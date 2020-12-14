@@ -56,8 +56,7 @@ func execute(_ instructions: [Instruction]) -> (line: Int, accumulator: Int) {
 }
 
 public func day08a() -> Int {
-    let instructions = parseLines()
-    return execute(instructions).accumulator
+    execute(parseLines()).accumulator
 }
 
 public func day08b() -> Int? {
