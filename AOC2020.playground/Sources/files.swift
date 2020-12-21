@@ -1,15 +1,15 @@
 import Foundation
 
-struct TextFile: IteratorProtocol {
+struct TextFile: Sequence, IteratorProtocol {
 
     init(_ path: String) {
         freopen(path, "r", stdin)
     }
-    mutating func next() -> String? {
+    func next() -> String? {
         readLine(strippingNewline: true)
     }
 }
 
-public func readLines(_ fileName: String) -> AnyIterator<String> {
-    AnyIterator(TextFile(Bundle.main.path(forResource: fileName, ofType: "txt")!))
+func readLines(_ fileName: String) -> TextFile {
+    TextFile(Bundle.main.path(forResource: fileName, ofType: "txt")!)
 }

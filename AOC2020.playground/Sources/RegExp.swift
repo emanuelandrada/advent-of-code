@@ -14,8 +14,8 @@ public extension NSRegularExpression {
         return matchResults.map { matchResult in
             (0..<matchResult.numberOfRanges).map{
                 matchResult.range(at: $0)
-            }.filter { $0.location != NSNotFound }.map {
-                nsString.substring(with: $0) as String
+            }.map {
+                $0.location != NSNotFound ? nsString.substring(with: $0) as String : ""
             }
         }
     }
